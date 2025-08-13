@@ -51,11 +51,14 @@ class Biblioteca:
         print(f"🔄 Livro '{titulo_livro}' devolvido por {usuario.nome_usuario}.")
 
     def listar_livros(self):
-        print("\n 📖Lista de livros📖")
-        for livro in self.livros:
-            print(livro)
+       if not self.livros:
+          return []
+       return [f"{livro.titulo} - {livro.autor} ({livro.ano}) - {livro.quantidade} disponíveis"
+               for livro in self.livros]
+
 
     def listar_usuarios(self):
-        print("\n 🧑‍🦲Lista de Usuários:")
-        for usuario in self.usuarios:
-            print(usuario)
+        if not self.usuarios:
+            return []
+        return [f"{usuario.nome_usuario} - {usuario.email} de ID: {usuario.id_usuario}"
+                for usuario in self.usuarios]
